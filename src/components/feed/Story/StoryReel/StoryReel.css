@@ -1,0 +1,27 @@
+.story__storyReel {
+  height: 200px;
+  width: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 10px;
+  position: relative;
+}
+
+.story__profilePic img {
+  margin: 10px 0 0 10px;
+  border: 3px solid var(--primary-color);
+}
+
+.story__username {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.story__username h5 {
+  color: white;
+}
