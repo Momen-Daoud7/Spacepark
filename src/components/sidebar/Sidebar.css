@@ -1,5 +1,6 @@
 .sidebar {
   flex: 0.33;
+  padding-left: 20px;
 }
 
 .sidebar__options {

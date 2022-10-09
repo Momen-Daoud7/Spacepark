@@ -1,0 +1,27 @@
+.postBox {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  justify-content: space-between;
+}
+
+.postBox__input {
+  display: flex;
+  gap: 10px;
+}
+
+.postBox__input input {
+  padding: 10px 25px;
+  border: none;
+  outline: none;
+}
+
+.postBox button {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  text-transform: capitalize !important;
+  border-radius: 10px !important;
+}
