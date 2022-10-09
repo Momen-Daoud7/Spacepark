@@ -1,14 +1,15 @@
 import React from "react";
+import ProfileWithInfo from "../../UI/profileWithInfo/ProfileWithInfo";
 import "./SidebarTop.css";
 
 const SidebarTop = () => {
   return (
     <div className="sidebar__top">
-      <img src="./assets/steve.jpg" alt="profile" className="profilePic" />
-      <div className="sidebar__topInfo">
-        <h3>Momen Daoud</h3>
-        <p>@momendaoud</p>
-      </div>
+      <ProfileWithInfo
+        name="Momen Daoud"
+        profilePic="./assets/steve.jpg"
+        text="@momendaoud"
+      />
     </div>
   );
 };

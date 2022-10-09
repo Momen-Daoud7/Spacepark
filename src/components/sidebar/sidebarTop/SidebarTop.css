@@ -1,15 +1,8 @@
 .sidebar__top {
-  display: flex;
-  gap: 10px;
-  align-items: center;
   background-color: white;
-  border-radius: 15px;
   width: 300px;
   box-shadow: 0px 5px 10px -9px rgb(0 0 0 / 75%);
   padding: 15px;
   padding-left: 30px;
-}
-
-.sidebar__topInfo p {
-  color: gray;
+  border-radius: 10px;
 }
