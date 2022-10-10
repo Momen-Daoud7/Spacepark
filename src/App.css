@@ -2,3 +2,10 @@
   display: flex;
   gap: 2%;
 }
+
+@media (max-width: 800px) {
+  .app__body {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}

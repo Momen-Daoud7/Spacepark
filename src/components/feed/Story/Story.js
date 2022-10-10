@@ -20,11 +20,6 @@ const Story = () => {
         profilePic="/assets/steve.jpg"
         backgroundImage="/assets/steve.jpg"
       />
-      <StoryReel
-        username="Momen Daoud"
-        profilePic="/assets/steve.jpg"
-        backgroundImage="/assets/steve.jpg"
-      />
     </div>
   );
 };

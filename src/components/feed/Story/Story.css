@@ -2,3 +2,9 @@
   display: flex;
   gap: 5px;
 }
+
+/* @media (max-width: 800px) {
+  .story {
+    padding-left: 10px;
+  }
+} */
