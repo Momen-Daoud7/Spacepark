@@ -1,19 +1,20 @@
 import "./App.css";
-import Feed from "./components/feed/Feed";
-import Header from "./components/header/Header";
-import Sidebar from "./components/sidebar/Sidebar";
-import Widgets from "./components/widgets/Widgets";
+import Feed from "./components/spacepark/feed/Feed";
+import Header from "./components/spacepark/header/Header";
+import Sidebar from "./components/spacepark/sidebar/Sidebar";
+import Widgets from "./components/spacepark/widgets/Widgets";
+import DashboardSidebar from "./components/dashboard/dashboardSidebar/DashboardSidebar";
 
 function App() {
   return (
     <div className="app">
-      <Header />
+      {/* <Header /> */}
 
       <div className="app__body">
-        <Sidebar />
+        <DashboardSidebar />
+        {/* <Sidebar />
         <Feed />
-        <Widgets />
-        {/* Wiget */}
+        <Widgets /> */}
       </div>
     </div>
   );

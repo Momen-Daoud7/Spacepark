@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { create, get, getAll, update, deleteData } from "../../services/posts";
 import spacepark from "../../apis/spacepark";
+
 // Get all posts from spacepark api
 export const getAllPosts = createAsyncThunk("posts/getAll", async () => {
   const res = await spacepark.get("/posts");
@@ -13,14 +13,16 @@ export const getPost = createAsyncThunk("posts/get", async ({ id }) => {
 });
 
 export const createPost = createAsyncThunk("posts/create", async (data) => {
-  const res = await spacepark.post(`/posts`, data);
+  const res = await spacepark.post(`/posts/create`, data);
   return res.data;
 });
 
 export const updatePost = createAsyncThunk(
   "posts/update",
   async ({ id, data }) => {
+    console.log(data);
     const res = await spacepark.put(`/posts/update/${id}`, data);
+    console.log(res.data);
     return res.data;
   }
 );
@@ -43,17 +45,19 @@ const postsSlice = createSlice({
     },
 
     [createPost.fulfilled]: (state, action) => {
-      state.push(action.payload);
+      state.posts.push(action.payload);
     },
 
     [updatePost.fulfilled]: (state, action) => {
-      const index = state.findByIndex((post) => post.id === action.payload.id);
-      state[index] = { ...state[index], ...action.payload };
+      const index = state.posts.findByIndex(
+        (post) => post.id === action.payload.id
+      );
+      state.posts[index] = { ...state[index], ...action.payload };
     },
 
     [deletePost.fulfilled]: (state, action) => {
-      const index = state.findByIndex(({ id }) => id === action.payload.id);
-      state.splice(index, 1);
+      const index = state.posts.findIndex(({ id }) => id === action.payload.id);
+      state.posts.splice(index, 1);
     },
   },
 });

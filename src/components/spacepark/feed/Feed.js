@@ -4,13 +4,16 @@ import "./Feed.css";
 import Post from "./post/Post";
 import PostBox from "./postBox/PostBox";
 import Story from "./Story/Story";
-import { getAllPosts } from "../../store/reducers/posts";
+import {
+  getAllPosts,
+  deletePost,
+  updatePost,
+} from "../../../store/reducers/posts";
 
 const Feed = () => {
   const posts = useSelector((state) => state.posts.posts);
   const [updatedPost, setUpdatedPost] = useState("");
   const dispatch = useDispatch();
-  console.log(posts[0]);
 
   useEffect(() => {
     const display = async () => {
@@ -20,7 +23,6 @@ const Feed = () => {
     display();
   }, []);
 
-  const deletePostHandler = (id) => {};
   const renderPosts = () => {
     if (posts.length > 0) {
       return posts[0].map((post) => {
@@ -36,16 +38,20 @@ const Feed = () => {
               placeholder="edit post"
               onChange={(e) => setUpdatedPost(e.target.value)}
             />
-            {/* <button
-              onClick={() =>
-                dispatch(updatePost({ id: post.id, content: updatedPost }))
+            <button
+              onClick={async () =>
+                await dispatch(
+                  updatePost({ id: post.id, data: { content: updatedPost } })
+                )
               }
             >
               Update post
             </button>
-            <button onClick={() => dispatch(deletePost({ id: post.id }))}>
+            <button
+              onClick={async () => await dispatch(deletePost({ id: post.id }))}
+            >
               Delete post
-            </button> */}
+            </button>
           </div>
         );
       });

@@ -1,0 +1,7 @@
+.dashboardSidebar__sidebarOption {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 45px;
+  border-bottom: 1px solid #f3eeee;
+  padding-bottom: 15px;
+}

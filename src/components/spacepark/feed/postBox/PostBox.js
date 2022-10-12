@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@material-ui/core";
-import { createPost } from "../../../store/reducers/posts";
+import { createPost } from "../../../../store/reducers/posts";
 import "./PostBox.css";
 import { useDispatch } from "react-redux";
 import { unwrapResult } from "@reduxjs/toolkit";
@@ -17,7 +17,7 @@ const PostBox = () => {
   const dispatch = useDispatch();
 
   const inputChangeHandler = (e) => {
-    const { name, value } = e.target;
+    const { value } = e.target;
     setPost({ ...post, ["content"]: value });
   };
 
@@ -30,10 +30,8 @@ const PostBox = () => {
         .then((data) => {
           console.log(data);
           setPost({
-            id: data.id,
-            content: data.content,
-            userId: data.userId,
-            image: data.image,
+            content: "",
+            image: "",
           });
         });
     }
