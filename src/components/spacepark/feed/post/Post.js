@@ -23,7 +23,7 @@ const Post = ({ username, profilePic, timestamp, postImage, postText }) => {
       </div>
       <div className="post__body">
         <p>{postText}</p>
-        <img src={postImage} />
+        {postImage && <img src={postImage} alt="postImage" />}
       </div>
       <div className="post__bottom">
         <div className="post__option">
@@ -36,7 +36,7 @@ const Post = ({ username, profilePic, timestamp, postImage, postText }) => {
         </div>
         <div className="post__option">
           <ShareOutlined />
-          <p>Like</p>
+          <p>Share</p>
         </div>
       </div>
     </div>
