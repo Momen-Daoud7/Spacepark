@@ -5,7 +5,7 @@ const Button = ({ Icon, text }) => {
   return (
     <div>
       <p className="addLink">
-        <Icon /> {text}
+        {Icon && <Icon />} {text}
       </p>
     </div>
   );

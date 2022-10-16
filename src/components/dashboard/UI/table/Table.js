@@ -9,7 +9,11 @@ const Table = ({ headers, data }) => {
           <tr>
             {headers &&
               headers.map((header) => {
-                return <th key={header}>{header}</th>;
+                return (
+                  <th key={header} data-testid="header">
+                    {header}
+                  </th>
+                );
               })}
           </tr>
         </thead>
@@ -17,7 +21,7 @@ const Table = ({ headers, data }) => {
           {data &&
             data.map((item) => {
               return (
-                <tr key={item.id}>
+                <tr key={item.id} data-testid="data">
                   <td>{item.id}</td>
                   <td>{item.name}</td>
                   <td>{item.email}</td>
