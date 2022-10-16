@@ -1,0 +1,35 @@
+.table {
+  background-color: white;
+  min-width: 600px;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+}
+
+thead tr {
+  width: 100%;
+}
+
+thead tr th,
+tbody tr td:not(:last-of-type) {
+  padding: 10px;
+}
+
+thead tr th,
+tbody tr:not(:last-of-type) td {
+  border-bottom: 2px solid #f3eeee;
+  padding-bottom: 10px;
+}
+
+tbody tr {
+  margin: 20px 0;
+  padding-bottom: 10px;
+}
+
+tbody tr:not(:last-of-type) {
+  border-bottom: 2px solid #f3eeee;
+}

@@ -45,7 +45,7 @@ const postsSlice = createSlice({
     },
 
     [createPost.fulfilled]: (state, action) => {
-      state.posts.push(action.payload);
+      state.posts.push(action.payload.post);
     },
 
     [updatePost.fulfilled]: (state, action) => {

@@ -9,3 +9,8 @@
     padding-left: 10px;
   }
 }
+
+.app__dashboardBody {
+  flex: 0.9;
+  margin-top: 40px;
+}

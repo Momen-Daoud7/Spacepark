@@ -1,0 +1,13 @@
+.addLink {
+  margin: 15px 0;
+  background-color: limegreen;
+  width: fit-content;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
