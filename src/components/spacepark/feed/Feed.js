@@ -27,7 +27,7 @@ const Feed = () => {
     if (posts.length > 0) {
       return posts[0].map((post) => {
         return (
-          <div key={post.id}>
+          <div key={post.id} data-testid="post">
             <Post
               postText={post.content}
               profilePic="./assets/steve.jpg"
