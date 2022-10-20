@@ -14,7 +14,7 @@ const UsersTable = () => {
   return (
     <div className="usersTable">
       <h2>Users</h2>
-      <Button Icon={Home} text="Add new user" />
+      <Button Icon={Home} text="Add new user" location="/dashboard/users/add" />
       <Table headers={headers} data={data} />
     </div>
   );

@@ -23,6 +23,9 @@ const handlers = [
       })
     );
   }),
+  rest.post("http://localhost:5000/api/v1/posts/create", (req, res, ctx) => {
+    return res(res.status(200));
+  }),
 ];
 
 export default handlers;

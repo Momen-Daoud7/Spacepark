@@ -14,3 +14,41 @@
   flex: 0.9;
   margin-top: 40px;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.form-control {
+  display: block;
+  margin-bottom: 25px;
+}
+
+input,
+select,
+textarea {
+  display: block;
+  width: 80%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+  margin-top: 5px;
+}
+
+.form-button {
+  background-color: #56a4f5 !important;
+  color: white !important;
+  padding: 10px 35px !important;
+  border-radius: 10px !important;
+  text-transform: capitalize !important;
+}

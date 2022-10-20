@@ -1,13 +1,14 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./Button.css";
 
-const Button = ({ Icon, text }) => {
+const Button = ({ Icon, text, location }) => {
   return (
-    <div>
+    <NavLink to={location}>
       <p className="addLink">
         {Icon && <Icon />} {text}
       </p>
-    </div>
+    </NavLink>
   );
 };
 
