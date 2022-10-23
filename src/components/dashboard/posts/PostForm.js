@@ -4,7 +4,7 @@ import React from "react";
 import * as Yup from "yup";
 import FormikControl from "../../../formik/FormikControl";
 
-const PostForm = ({ submitHandler }) => {
+const PostForm = ({ submitHandler, savedValues }) => {
   const initialValues = {
     content: "",
     userId: 1,
@@ -20,7 +20,7 @@ const PostForm = ({ submitHandler }) => {
 
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={savedValues || initialValues}
       onSubmit={onSubmit}
       validationSchema={validationSchema}
     >
@@ -32,7 +32,7 @@ const PostForm = ({ submitHandler }) => {
             disabled={formik.isSubmitting}
             className="form-button"
           >
-            Add
+            Submit
           </Button>
         </Form>
       )}

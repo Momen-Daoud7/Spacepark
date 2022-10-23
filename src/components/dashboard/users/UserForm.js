@@ -4,12 +4,12 @@ import React from "react";
 import * as Yup from "yup";
 import FormikControl from "../../../formik/FormikControl";
 
-const UserForm = ({ submitHandler }) => {
+const UserForm = ({ submitHandler, savedValues, confirm }) => {
   const initialValues = {
     name: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    passwordConfirm: "",
     role: "user",
   };
   const onSubmit = (values, onSubmitProps) => {
@@ -22,19 +22,21 @@ const UserForm = ({ submitHandler }) => {
     email: Yup.string().required("Email is required").email("Invalid email"),
     password: Yup.string().required("Password is required"),
     role: Yup.string().required("Role is required"),
-    confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"), ""], "Password doesn't match")
-      .required("Password is required"),
+    passwordConfirm: confirm
+      ? Yup.string()
+          .oneOf([Yup.ref("password"), ""], "Password doesn't match")
+          .required("Password is required")
+      : null,
   });
 
   const options = [
     { key: "User", value: "user" },
     { key: "Admin", value: "admin" },
   ];
-
+  console.log(savedValues);
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={savedValues || initialValues}
       onSubmit={onSubmit}
       validationSchema={validationSchema}
     >
@@ -60,12 +62,14 @@ const UserForm = ({ submitHandler }) => {
             label="Password"
             name="password"
           />
-          <FormikControl
-            control="input"
-            type="password"
-            label="Confirm Password"
-            name="confirmPassword"
-          />
+          {confirm && (
+            <FormikControl
+              control="input"
+              type="password"
+              label="Confirm Password"
+              name="passwordConfirm"
+            />
+          )}
           <Button
             type="submit"
             disabled={formik.isSubmitting}

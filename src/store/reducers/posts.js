@@ -7,7 +7,7 @@ export const getAllPosts = createAsyncThunk("posts/getAll", async () => {
   return res.data;
 });
 
-export const getPost = createAsyncThunk("posts/get", async ({ id }) => {
+export const getPost = createAsyncThunk("posts/get", async (id) => {
   const res = await spacepark.get(`/posts/${id}`);
   return res.data;
 });
@@ -20,9 +20,7 @@ export const createPost = createAsyncThunk("posts/create", async (data) => {
 export const updatePost = createAsyncThunk(
   "posts/update",
   async ({ id, data }) => {
-    console.log(data);
     const res = await spacepark.put(`/posts/update/${id}`, data);
-    console.log(res.data);
     return res.data;
   }
 );
@@ -37,7 +35,7 @@ const postsSlice = createSlice({
   initialState: { posts: [] },
   extraReducers: {
     [getAllPosts.fulfilled]: (state, action) => {
-      state.posts = [action.payload.posts];
+      state.posts = action.payload.posts;
     },
 
     [getPost.fulfilled]: (state, action) => {
@@ -49,10 +47,10 @@ const postsSlice = createSlice({
     },
 
     [updatePost.fulfilled]: (state, action) => {
-      const index = state.posts.findByIndex(
+      const index = state.posts.findIndex(
         (post) => post.id === action.payload.id
       );
-      state.posts[index] = { ...state[index], ...action.payload };
+      state.posts[index] = action.payload.post;
     },
 
     [deletePost.fulfilled]: (state, action) => {

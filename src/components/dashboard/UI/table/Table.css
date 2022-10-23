@@ -33,3 +33,18 @@ tbody tr {
 tbody tr:not(:last-of-type) {
   border-bottom: 2px solid #f3eeee;
 }
+
+.edit-btn,
+.delete-btn {
+  padding: 10px 20px !important;
+  text-transform: capitalize !important;
+  color: white !important;
+}
+
+.edit-btn {
+  background-color: dodgerblue !important;
+}
+
+.delete-btn {
+  background-color: red !important;
+}

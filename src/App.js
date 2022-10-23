@@ -2,110 +2,54 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React from "react";
 
 import "./App.css";
-import Feed from "./components/spacepark/feed/Feed";
-import Header from "./components/spacepark/header/Header";
-import Sidebar from "./components/spacepark/sidebar/Sidebar";
-import Widgets from "./components/spacepark/widgets/Widgets";
-import DashboardSidebar from "./components/dashboard/dashboardSidebar/DashboardSidebar";
-import UsersTable from "./components/dashboard/users/UsersTable";
-import PostsTable from "./components/dashboard/posts/PostsTable";
-import AddUser from "./components/dashboard/users/addUser/AddUser";
-import AddPost from "./components/dashboard/posts/addPost.js/AddPost";
+import Login from "./components/spacepark/auth/Login";
+import Register from "./components/spacepark/auth/Register";
+import Protected from "./routes/Protected";
+import Admin from "./routes/Admin";
+import HomePage from "./pages/spacepark/HomePage";
+import MainPage from "./pages/dashboard/MainPage";
+import CreateUser from "./pages/dashboard/CreateUser";
+import UpdateUser from "./pages/dashboard/UpdateUser";
+import Posts from "./pages/dashboard/Posts";
+import CreatePost from "./pages/dashboard/CreatePost";
+import UpdatePost from "./pages/dashboard/UpdatePost";
 
 function App() {
   return (
     <div className="app">
       <BrowserRouter>
         <Routes>
-          <Route
-            path="/"
-            exact
-            element={
-              <React.Fragment>
-                <Header />
-                <div className="app__body">
-                  <Sidebar />
-                  <Feed />
-                  <Widgets />
-                </div>
-              </React.Fragment>
-            }
-          />
+          <Route path="/register" exact element={<Register />} />
+          <Route path="/login" exact element={<Login />} />
+          <Route element={<Protected />}>
+            <Route path="/" exact element={<HomePage />} />
+            <Route element={<Admin />}>
+              <Route path="/dashboard" exact element={<MainPage />} />
+              <Route path="/dashboard/users" exact element={<MainPage />} />
+              <Route
+                path="/dashboard/users/add"
+                exact
+                element={<CreateUser />}
+              />
+              <Route
+                path="/dashboard/users/edit/:id"
+                exact
+                element={<UpdateUser />}
+              />
+              <Route path="/dashboard/posts" exact element={<Posts />} />
 
-          <Route
-            path="/dashboard"
-            exact
-            element={
-              <React.Fragment>
-                <div className="app__body">
-                  <DashboardSidebar />
-                  <div className="app__dashboardBody">
-                    <UsersTable />
-                  </div>
-                </div>
-              </React.Fragment>
-            }
-          />
-
-          <Route
-            path="/dashboard/users"
-            exact
-            element={
-              <React.Fragment>
-                <div className="app__body">
-                  <DashboardSidebar />
-                  <div className="app__dashboardBody">
-                    <UsersTable />
-                  </div>
-                </div>
-              </React.Fragment>
-            }
-          />
-
-          <Route
-            path="/dashboard/users/add"
-            exact
-            element={
-              <React.Fragment>
-                <div className="app__body">
-                  <DashboardSidebar />
-                  <div className="app__dashboardBody">
-                    <AddUser />
-                  </div>
-                </div>
-              </React.Fragment>
-            }
-          />
-
-          <Route
-            path="/dashboard/posts"
-            exact
-            element={
-              <React.Fragment>
-                <div className="app__body">
-                  <DashboardSidebar />
-                  <div className="app__dashboardBody">
-                    <PostsTable />
-                  </div>
-                </div>
-              </React.Fragment>
-            }
-          />
-
-          <Route
-            path="/dashboard/posts/add"
-            exact
-            element={
-              <React.Fragment>
-                <div className="app__body">
-                  <DashboardSidebar />
-                  <div className="app__dashboardBody">
-                    <AddPost />
-                  </div>
-                </div>
-              </React.Fragment>
-            }
-          />
+              <Route
+                path="/dashboard/posts/add"
+                exact
+                element={<CreatePost />}
+              />
+              <Route
+                path="/dashboard/posts/edit/:id"
+                exact
+                element={<UpdatePost />}
+              />
+            </Route>
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

@@ -25,7 +25,7 @@ const Feed = () => {
 
   const renderPosts = () => {
     if (posts.length > 0) {
-      return posts[0].map((post) => {
+      return posts.map((post) => {
         return (
           <div key={post.id} data-testid="post">
             <Post
